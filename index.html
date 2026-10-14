@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0b0e">
+  <meta name="description" content="Central oficial do FUTURE STARS FC — elenco, resultados, Evoluções, mercado e história do clube.">
+  <title>FUTURE STARS FC | Central Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Future Stars FC início">
+      <div class="brand-mark">FS<span>FC</span></div>
+      <div><strong>FUTURE STARS FC</strong><small>FORMAR ESTRELAS. CONQUISTAR O MUNDO.</small></div>
+    </a>
+    <nav class="nav">
+      <a href="#elenco">Elenco</a><a href="#partidas">Partidas</a><a href="#evolucoes">Evolution Lab</a><a href="#mercado">Mercado</a><a href="#temporadas">Temporadas</a>
+    </nav>
+    <div class="top-actions"><span id="connectionStatus" class="status-pill"><i></i> Modo local</span><button id="adminOpen" class="btn btn-outline">Área administrativa</button></div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> CENTRAL OFICIAL DO CLUBE</div>
+        <h1>O FUTURO<br>É <em>AGORA.</em></h1>
+        <p>Talento se desenvolve. Resultados constroem legado. Acompanhe a jornada do FUTURE STARS FC dentro e fora de campo.</p>
+        <div class="hero-buttons"><a class="btn btn-red" href="#elenco">Explorar elenco <b>↗</b></a><a class="btn btn-outline" href="#temporadas">Ver temporadas</a></div>
+        <div class="hero-tags"><span>DISCIPLINA</span><span>EVOLUÇÃO</span><span>RESULTADOS</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="stadium-lines"></div><div class="hero-emblem"><div class="emblem-top">FUTURE STARS</div><div class="emblem-center">★</div><div class="emblem-bottom">FC</div></div>
+        <div class="hero-side-label">ACADEMIA DE TALENTOS <b>EST. 2026</b></div>
+        <div class="hero-bottom"><span>01 / A JORNADA COMEÇA</span><strong>FUTURE STARS <i>FC</i></strong></div>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Resumo do clube">
+      <article class="stat-card"><span>JOGADORES NO ELENCO</span><strong id="statPlayers">0</strong><small>Talentos registrados</small><b class="stat-icon">♙</b></article>
+      <article class="stat-card"><span>PARTIDAS REGISTRADAS</span><strong id="statMatches">0</strong><small>Histórico competitivo</small><b class="stat-icon">◉</b></article>
+      <article class="stat-card"><span>TÍTULOS CONQUISTADOS</span><strong id="statTrophies">0</strong><small>Uma história em construção</small><b class="stat-icon">♜</b></article>
+      <article class="stat-card"><span>EVOLUÇÕES REGISTRADAS</span><strong id="statEvos">0</strong><small>Desenvolvimento contínuo</small><b class="stat-icon">↗</b></article>
+    </section>
+
+    <section id="elenco" class="section">
+      <div class="section-head"><div><div class="eyebrow">OS PROTAGONISTAS</div><h2>ELENCO <em>DO CLUBE</em></h2><p>Conheça os talentos e acompanhe sua evolução.</p></div><div class="filters"><input id="playerSearch" type="search" placeholder="Buscar jogador..."><select id="teamFilter"><option value="">Todas as equipes</option><option>Equipe A</option><option>Equipe B</option><option>Academia</option></select></div></div>
+      <div id="playersGrid" class="player-grid"><div class="empty-state">Carregando elenco...</div></div>
+    </section>
+
+    <section id="partidas" class="section section-dark">
+      <div class="section-head"><div><div class="eyebrow">DENTRO DE CAMPO</div><h2>ÚLTIMOS <em>RESULTADOS</em></h2><p>Rivals, Champions, Copas e amistosos registrados pelo clube.</p></div><a class="text-link" href="#adminPanel" id="matchesAdminLink">Gerenciar partidas ↗</a></div>
+      <div class="table-wrap"><table><thead><tr><th>DATA</th><th>COMPETIÇÃO</th><th>ADVERSÁRIO</th><th>PLACAR</th><th>RESULTADO</th></tr></thead><tbody id="matchesTable"><tr><td colspan="5" class="empty-cell">Nenhuma partida registrada ainda.</td></tr></tbody></table></div>
+    </section>
+
+    <section class="two-column">
+      <article id="evolucoes" class="feature-card evo-card"><div class="eyebrow">EVOLUTION LAB</div><h2>TODO TALENTO<br>PODE <em>IR ALÉM.</em></h2><p>Um histórico do desenvolvimento de cada jogador: carta inicial, Evoluções aplicadas e nova etapa da carreira.</p><div id="evoList" class="compact-list"><div class="empty-state">Nenhuma Evolução registrada.</div></div></article>
+      <article id="mercado" class="feature-card market-card"><div class="eyebrow">MERCADO DA BOLA</div><h2>PLANEJAMENTO.<br><em>VISÃO DE FUTURO.</em></h2><p>Contratações e saídas sob as regras oficiais do FUTURE STARS FC.</p><div class="market-summary"><div><span>ENTRADAS</span><strong id="marketIn">0</strong></div><div><span>SAÍDAS</span><strong id="marketOut">0</strong></div><div><span>GASTO REGISTRADO</span><strong id="marketSpend">0</strong></div></div><a class="btn btn-outline" href="#adminPanel" id="marketAdminLink">Abrir gestão do mercado ↗</a></article>
+    </section>
+
+    <section id="temporadas" class="section">
+      <div class="section-head"><div><div class="eyebrow">CAPÍTULOS DA HISTÓRIA</div><h2>TEMPORADAS <em>DO CLUBE</em></h2><p>Cada mês, um novo capítulo. Cada decisão constrói o legado.</p></div></div>
+      <div id="seasonsGrid" class="season-grid"><div class="empty-state">Nenhuma temporada cadastrada.</div></div>
+    </section>
+
+    <section class="club-rules">
+      <div><div class="eyebrow">NOSSA IDENTIDADE</div><h2>FORMAR ESTRELAS.<br><em>CONQUISTAR O MUNDO.</em></h2><p>O FUTURE STARS FC nasceu em 2026 como uma academia de talentos com ambição competitiva: revelar jogadores, desenvolver cartas por meio de Evoluções e construir uma dinastia temporada após temporada.</p></div>
+      <div class="rules-list"><div><b>01</b><span><strong>Desenvolvimento</strong><small>Prioridade para talentos nascidos em 2003 ou depois, respeitando as exceções oficiais.</small></span></div><div><b>02</b><span><strong>Disciplina de mercado</strong><small>Janelas, limite de contratações e orçamento definidos pelo regulamento do clube.</small></span></div><div><b>03</b><span><strong>Competitividade</strong><small>Rivals, Champions e Copas como palcos para provar o valor dos talentos.</small></span></div><div><b>04</b><span><strong>Legado</strong><small>Estatísticas, títulos, artes e momentos históricos ficam arquivados.</small></span></div></div>
+    </section>
+  </main>
+
+  <footer><div class="brand footer-brand"><div class="brand-mark">FS<span>FC</span></div><div><strong>FUTURE STARS FC</strong><small>DISCIPLINA • EVOLUÇÃO • RESULTADOS</small></div></div><p>Projeto de fã para EA SPORTS FC. FUTURE STARS FC é uma iniciativa independente e não é afiliada à EA SPORTS, Red Bull ou aos clubes citados.</p><span>© 2026 FUTURE STARS FC</span></footer>
+
+  <div id="adminModal" class="modal hidden">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card">
+      <div class="modal-heading"><div><div class="eyebrow">CENTRAL DE COMANDO</div><h2>ÁREA <em>ADMINISTRATIVA</em></h2></div><button id="adminClose" class="icon-btn" aria-label="Fechar">×</button></div>
+      <div id="adminAuth" class="auth-box"><p>Entre para gerenciar dados compartilhados. Se o Supabase não estiver configurado, o modo local continua disponível neste navegador.</p><label>E-mail<input id="authEmail" type="email" placeholder="voce@email.com"></label><label>Senha<input id="authPassword" type="password" placeholder="Sua senha"></label><div class="button-row"><button id="loginBtn" class="btn btn-red">Entrar</button><button id="signupBtn" class="btn btn-outline">Criar conta</button></div><p id="authMessage" class="form-message"></p><hr><h3>Configurar o modo local</h3><p class="small-note">No modo local, qualquer pessoa com acesso ao navegador pode editar e os dados não sincronizam entre dispositivos. Para gestão compartilhada, configure o Supabase seguindo o README.</p><button id="localAdminBtn" class="btn btn-outline">Abrir ferramentas locais</button></div>
+      <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-toolbar"><span id="adminModeLabel" class="status-pill"><i></i> Gestão ativa</span><button id="logoutBtn" class="btn btn-outline">Sair</button></div>
+        <div class="admin-tabs"><button class="tab active" data-tab="playerForm">Jogador</button><button class="tab" data-tab="matchForm">Partida</button><button class="tab" data-tab="evoForm">Evolução</button><button class="tab" data-tab="marketForm">Mercado</button><button class="tab" data-tab="seasonForm">Temporada</button><button class="tab" data-tab="trophyForm">Título</button><button class="tab" data-tab="galleryForm">Imagem</button></div>
+        <form id="playerForm" class="admin-form active"><h3>Cadastrar jogador</h3><div class="form-grid"><label>Nome<input name="name" required></label><label>Overall<input name="overall" type="number" min="1" max="99" required></label><label>Posição<input name="position" placeholder="CAM, ST, CB..." required></label><label>Ano de nascimento<input name="birth_year" type="number" min="1980" max="2030"></label><label>Equipe<select name="team"><option>Equipe A</option><option>Equipe B</option><option>Academia</option></select></label><label>País<input name="country" placeholder="Brasil"></label><label>Imagem da carta (URL)<input name="image_url" type="url" placeholder="https://..."></label><label>Status<select name="status"><option>Ativo</option><option>Emprestado</option><option>Lenda</option><option>Dispensado</option></select></label></div><label>Notas<textarea name="notes" rows="2"></textarea></label><button class="btn btn-red">Salvar jogador</button></form>
+        <form id="matchForm" class="admin-form"><h3>Registrar partida</h3><div class="form-grid"><label>Data<input name="match_date" type="date" required></label><label>Competição<select name="competition"><option>Rivals</option><option>Champions</option><option>Copa</option><option>Amistoso</option><option>Outro</option></select></label><label>Adversário<input name="opponent" required></label><label>Gols do Future Stars<input name="goals_for" type="number" min="0" required></label><label>Gols sofridos<input name="goals_against" type="number" min="0" required></label><label>Jogador destaque<input name="player_of_match"></label></div><label>Observações<textarea name="notes" rows="2"></textarea></label><button class="btn btn-red">Salvar partida</button></form>
+        <form id="evoForm" class="admin-form"><h3>Registrar Evolução</h3><div class="form-grid"><label>Jogador<input name="player_name" required></label><label>Nome da Evolução<input name="evolution_name" required></label><label>Overall anterior<input name="old_overall" type="number" min="1" max="99"></label><label>Overall novo<input name="new_overall" type="number" min="1" max="99"></label><label>Data<input name="evo_date" type="date"></label></div><label>Notas<textarea name="notes" rows="2"></textarea></label><button class="btn btn-red">Salvar Evolução</button></form>
+        <form id="marketForm" class="admin-form"><h3>Movimentação de mercado</h3><div class="form-grid"><label>Jogador<input name="player_name" required></label><label>Movimento<select name="movement"><option>Contratação</option><option>Saída</option></select></label><label>Tipo<select name="source"><option>Mercado</option><option>Pacote</option><option>Recompensa</option><option>Draft</option><option>Outro</option></select></label><label>Custo em moedas<input name="cost" type="number" min="0" value="0"></label><label>Data<input name="movement_date" type="date"></label><label>Temporada<input name="season"></label></div><label>Observações<textarea name="notes" rows="2"></textarea></label><button class="btn btn-red">Salvar movimentação</button></form>
+        <form id="seasonForm" class="admin-form"><h3>Cadastrar temporada</h3><div class="form-grid"><label>Nome da temporada<input name="name" required placeholder="Temporada 01 — Ano Zero"></label><label>Início<input name="start_date" type="date"></label><label>Fim<input name="end_date" type="date"></label><label>Status<select name="status"><option>Em andamento</option><option>Concluída</option><option>Planejada</option></select></label><label>Títulos conquistados<input name="titles" type="number" min="0" value="0"></label></div><label>Resumo<textarea name="summary" rows="3"></textarea></label><button class="btn btn-red">Salvar temporada</button></form>
+        <form id="trophyForm" class="admin-form"><h3>Registrar título</h3><div class="form-grid"><label>Nome do título<input name="name" required></label><label>Competição<input name="competition"></label><label>Temporada<input name="season"></label><label>Data<input name="award_date" type="date"></label></div><label>Observações<textarea name="notes" rows="2"></textarea></label><button class="btn btn-red">Salvar título</button></form>
+        <form id="galleryForm" class="admin-form"><h3>Adicionar imagem à galeria</h3><div class="form-grid"><label>Título<input name="title" required></label><label>Categoria<select name="category"><option>Apresentação</option><option>Contratação</option><option>Partida</option><option>Premiação</option><option>Identidade do clube</option><option>Outro</option></select></label><label>URL da imagem<input name="image_url" type="url" required placeholder="https://..."></label><label>Data<input name="image_date" type="date"></label></div><label>Descrição<textarea name="description" rows="2"></textarea></label><button class="btn btn-red">Salvar imagem</button></form>
+        <div class="admin-bottom"><button id="exportBtn" class="btn btn-outline">Exportar backup JSON</button><label class="btn btn-outline import-label">Importar backup<input id="importFile" type="file" accept="application/json"></label><button id="clearLocalBtn" class="btn btn-danger">Limpar dados locais</button></div><p id="adminMessage" class="form-message"></p>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
